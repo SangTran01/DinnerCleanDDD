@@ -1,4 +1,6 @@
+using Dinner.Application;
 using Dinner.Application.Services.Authentication;
+using Dinner.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services
+    .AddInfrastructure()
+    .AddApplication();
 
 var app = builder.Build();
 
