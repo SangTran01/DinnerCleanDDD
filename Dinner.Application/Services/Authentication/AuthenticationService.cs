@@ -1,14 +1,17 @@
 ﻿using Dinner.Application.Common.Interfaces;
+using Dinner.Application.Services.Persistence;
 
 namespace Dinner.Application.Services.Authentication;
 
 public class AuthenticationService: IAuthenticationService
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
+    private readonly IUserRepository _userRepository;
 
-    public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator)
+    public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
+        _userRepository = userRepository;
     }
     public AuthenticationResult Login(string email, string password)
     {

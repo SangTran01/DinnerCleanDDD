@@ -26,7 +26,11 @@ public class AuthenticationController: ControllerBase
 
         var authResponse = new AuthenticationResponse()
         {
-            Id = authResult.Id
+            Id = authResult.Id,
+            Email = authResult.Email,
+            FirstName = authResult.FirstName,
+            LastName = authResult.LastName,
+            Token = authResult.Token
         };
         return Ok(authResponse);
     }
@@ -40,7 +44,11 @@ public class AuthenticationController: ControllerBase
         
         var authResponse = new AuthenticationResponse()
         {
-            Id = authResult.Id
+            Id = authResult.Id,
+            Email = authResult.Email,
+            FirstName = authResult.FirstName,
+            LastName = authResult.LastName,
+            Token = authResult.Token
         };
         return Ok(authResponse);
     }
